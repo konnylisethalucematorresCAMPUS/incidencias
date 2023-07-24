@@ -54,7 +54,75 @@ Endpoints para ser consumidos por las aplicaciones externas.
     - dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection --version 12.0.1           ---> Se utiliza para agregar el paquete de AutoMapper.Extensions.Microsoft.DependencyInjection en su versión 12.0.1 a un proyecto de .NET.
 
 
+**Como hacer migraciones**
+////////////////////////////////////////////////////////////////////////////////////////////////
+Paso 1: Instalar Entity Framework
+Asegúrate de tener instalado Entity Framework en tu proyecto. Puedes instalarlo a través de NuGet Package Manager utilizando el siguiente comando en la Consola del Administrador de Paquetes:
 
+//Codigo
+        Install-Package EntityFramework
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+Paso 2: Crear una clase que herede de DbContext
+Crea una clase que herede de DbContext. Esta clase representa el contexto de la base de datos y se utilizará para interactuar con la base de datos y definir los DbSet para las entidades que deseas persistir.
+
+//Codigo
+        using System.Data.Entity;
+
+        public class MiDbContext : DbContext
+        {
+            public DbSet<MiEntidad> MisEntidades { get; set; }
+
+            // Otros DbSet para otras entidades, si las hay
+
+            // Constructor para pasar la cadena de conexión a la clase base DbContext
+            public MiDbContext() : base("NombreDeTuCadenaDeConexion")
+            {
+            }
+        }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+Paso 3: Definir tu entidad
+Crea una clase para representar la entidad que deseas persistir en la base de datos.
+
+//Codigo
+        public class MiEntidad
+        {
+            public int Id { get; set; }
+            public string Nombre { get; set; }
+
+            // Otros campos de la entidad, si los hay
+        }
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+Paso 4: Habilitar las migraciones
+Para habilitar las migraciones, abre la Consola del Administrador de Paquetes y selecciona el proyecto que contiene tu clase de contexto (MiDbContext). Luego, ejecuta el siguiente comando:
+
+//Codigo
+Enable-Migrations
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+Paso 5: Crear una nueva migración
+Para crear una nueva migración, utiliza el siguiente comando en la Consola del Administrador de Paquetes:
+
+//Codigo
+Add-Migration NombreDeTuMigracion
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+Esto creará una nueva clase de migración con el nombre que especificaste en la carpeta "Migrations" de tu proyecto. Esta clase contiene las operaciones necesarias para aplicar los cambios en la base de datos.
+////////////////////////////////////////////////////////////////////////////////////////////////
+Paso 6: Aplicar la migración
+Finalmente, para aplicar la migración a la base de datos, ejecuta el siguiente comando:
+
+//Codigo
+Update-Database
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+Esto aplicará todas las migraciones pendientes y actualizará la base de datos con los cambios definidos en las clases de migración.
 ```
 
 ---
