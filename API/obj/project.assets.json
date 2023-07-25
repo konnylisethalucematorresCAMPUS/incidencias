@@ -1616,19 +1616,19 @@
     ]
   },
   "packageFolders": {
-    "/home/skylab-138/.nuget/packages/": {}
+    "/home/apolm01-018/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/skylab-138/Videos/Incidencias/API/API.csproj",
+      "projectUniqueName": "/home/apolm01-018/incidencias/API/API.csproj",
       "projectName": "API",
-      "projectPath": "/home/skylab-138/Videos/Incidencias/API/API.csproj",
-      "packagesPath": "/home/skylab-138/.nuget/packages/",
-      "outputPath": "/home/skylab-138/Videos/Incidencias/API/obj/",
+      "projectPath": "/home/apolm01-018/incidencias/API/API.csproj",
+      "packagesPath": "/home/apolm01-018/.nuget/packages/",
+      "outputPath": "/home/apolm01-018/incidencias/API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/skylab-138/.nuget/NuGet/NuGet.Config"
+        "/home/apolm01-018/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -1640,8 +1640,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/home/skylab-138/Videos/Incidencias/Infrastructure/Infrastructure.csproj": {
-              "projectPath": "/home/skylab-138/Videos/Incidencias/Infrastructure/Infrastructure.csproj"
+            "/home/apolm01-018/incidencias/Infrastructure/Infrastructure.csproj": {
+              "projectPath": "/home/apolm01-018/incidencias/Infrastructure/Infrastructure.csproj"
             }
           }
         }
